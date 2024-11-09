@@ -1,5 +1,6 @@
 package Les4Array;
 
+import java.sql.Array;
 import java.util.Arrays;
 
 public class TaskArray {
@@ -10,7 +11,12 @@ public class TaskArray {
         // taskFourth();
        // taskFifth();
         // taskSixth();
-        taskSeventh();
+        //taskSeventh();
+        //taskEight();
+        //taskNine();
+       // taskTen();
+        //taskEleven();
+        taskTwelve();
 
     }
 
@@ -147,6 +153,121 @@ public class TaskArray {
         }
         System.out.println("Количество четных = " + evenNum);
         System.out.println("Количество нечетных = " + oddNum);
+
+    }
+
+    /**
+     * 8. Копирование массива
+     * Задача: Создайте массив из 5 чисел и скопируйте его в другой массив.
+     * Подсказка: Можно использовать цикл для копирования элементов или воспользоваться методом System.arraycopy.
+     **/
+
+    public static void taskEight(){
+        int[] array = {3, 45, 12, 9, 3};
+        int length = array.length;;
+        int[] array2 = new int[length];
+        for(int i = 0; i < array.length; i++){
+            array2[i] = array[i];
+        }
+        System.out.println(Arrays.toString(array2));
+    }
+
+    /**
+     * 9. Сдвиг элементов массива вправо
+     * Задача: Напишите программу, которая сдвигает все элементы массива на одну позицию вправо. Последний элемент при этом становится первым.
+     *
+     * Подсказка: Сохраните последний элемент во временную переменную, а затем сдвигайте все остальные элементы.
+     **/
+
+    public static void taskNine(){
+        int[] array = {65, 8, 11, 9, 55, 10};
+        int lastElement =  array[array.length - 1];
+        for(int index = array.length-1; index > 0; index--){
+            array[index] = array[index-1];
+
+        }
+        array[0]= lastElement;
+
+        System.out.println(Arrays.toString(array));
+    }
+
+    /**
+     * 10. Удаление элемента из массива
+     * Задача: Напишите программу, которая удаляет элемент массива по указанному индексу.
+     * Массив должен стать короче на один элемент.
+     *
+     * Подсказка: Скопируйте все элементы, кроме удаляемого, в новый массив.
+     * В Java массивы фиксированной длины, поэтому создается новый массив меньшего размера.
+     **/
+    public static void taskTen(){
+        int[] array = {12, 112, 212, 312, 412, 512};
+        int[] array2 = new int[array.length-1];
+        int numberElement = 3;
+        for( int i = 0; i < numberElement; i++){
+            array2[i]= array[i];
+        }
+        for( int i = numberElement+1; i < array.length; i++){
+            array2[i-1]= array[i];
+        }
+
+
+        System.out.println(Arrays.toString(array2));
+        System.out.println(Arrays.toString(array));
+    }
+
+    /**
+     * 11. Поиск заданного элемента в массиве
+     * Задача: Напишите программу, которая ищет заданное число в массиве и возвращает его индекс.
+     * Если число не найдено, вывести -1.
+     *
+     * Подсказка: Используйте цикл for и проверяйте, совпадает ли каждый элемент с искомым значением.
+     **/
+
+    public static void taskEleven(){
+
+        int[] array = {21, 22, 77, 9, 12, 21, 77, 9,3,1};
+        int number = 21;
+         for(int i = 0; i < array.length; i++){
+             if(array[i] == number){
+                 System.out.println(i);
+             } else{
+                 System.out.println(-1);
+             }
+         }
+    }
+
+
+    /**
+     * 12. Проверка массива на палиндром
+     * Задача: Проверьте, является ли массив чисел "палиндромом",
+     * то есть одинаково ли он читается в прямом и обратном порядке.
+     *
+     * Подсказка: Используйте два указателя (начало и конец массива) и сравнивайте соответствующие элементы,
+     * пока они не встретятся.
+     **/
+
+    public static void taskTwelve(){
+
+        int[] array = {1,2, 6, 4 , 4, 3, 2, 1};
+        int j = array.length-1;
+        boolean pal = false;
+        for(int i = 0; i < array.length/2;i++){
+            if(array[i]==array[j]){
+                pal = true;
+            } else{
+                pal = false;
+                break;
+            }
+            j--;
+        }
+
+       if(pal==true){
+            System.out.println("Массив палиндром");
+        } else{
+            System.out.println("Не палиндром");
+        }
+        
+
 
     }
 
